@@ -1,0 +1,16 @@
+需要注意的几个类或接口
+UsernamePasswordAuthenticationFilter  //用户登录默认授权
+
+AuthenticationSuccessHandler  可以用来执行授权成功执行的方法
+
+AuthenticationFailureHandler  登录失败处理器
+        登录权限控制
+        static final String permitAll = "permitAll";
+        private static final String denyAll = "denyAll";
+        private static final String anonymous = "anonymous";
+        private static final String authenticated = "authenticated";
+        private static final String fullyAuthenticated = "fullyAuthenticated";
+        private static final String rememberMe = "rememberMe";
+
+
+
