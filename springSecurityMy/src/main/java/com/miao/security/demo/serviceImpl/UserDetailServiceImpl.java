@@ -19,7 +19,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         //自定义登录逻辑
         //如果用户名不存在 抛出UsernameNotFoundException
         if (!"admin".equals(username)) {
-            throw  new UsernameNotFoundException("用户名不存在");
+            throw new UsernameNotFoundException("用户名不存在");
         }
         String password = passwordEncoder.encode("123");
 // 	public User(String username, String password,

@@ -1,3 +1,6 @@
+// 代码来源  视频地址：https://www.bilibili.com/video/BV1SA411V7RM?p=22&spm_id_from=pageDriver
+
+
 需要注意的几个类或接口
 UsernamePasswordAuthenticationFilter  //用户登录默认授权
 
@@ -12,5 +15,27 @@ AuthenticationFailureHandler  登录失败处理器
         private static final String fullyAuthenticated = "fullyAuthenticated";
         private static final String rememberMe = "rememberMe";
 
+@EnableGlobalMethodSecurity
+      a.具体使用需要两步
+        1.放到启动类或者普通类上面 eg:@EnableGlobalMethodSecurity(securedEnabled=true)
+            @SpringBootApplication
+            @EnableGlobalMethodSecurity(securedEnabled=true)
+            public class DemoApplication {
+        2.需要的方法上进行标注
+             @Secured("Role_secured")
+             @RequestMapping("toMain")
+             public String main() {
+                 return "redirect:main.html";
+             }
 
-
+      b.prePostEnabled
+        1.放到启动类或者普通类上面 eg:@EnableGlobalMethodSecurity(prePostEnabled=true)
+                    @SpringBootApplication
+                    @EnableGlobalMethodSecurity(prePostEnabled=true)
+                    public class DemoApplication {
+                2.需要的方法上进行标注
+                     @PreAuthorize("hasRole('ROLE_abc')")
+                     @RequestMapping("toMain")
+                     public String main() {
+                         return "redirect:main.html";
+                     }
