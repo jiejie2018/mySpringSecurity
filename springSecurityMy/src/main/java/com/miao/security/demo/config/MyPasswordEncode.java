@@ -75,10 +75,10 @@ public class MyPasswordEncode extends WebSecurityConfigurerAdapter {
        // http.csrf().disable();
 
         //异常处理
-//        http.exceptionHandling()
-//                //使用自定义的异常处理
-//                .accessDeniedHandler(myAccessDeyHandle);
-        //记住我功能
+        http.exceptionHandling()
+                //使用自定义的异常处理
+                .accessDeniedHandler(myAccessDeyHandle);
+       //  记住我功能
         http.rememberMe()
                 //设置60s的记住密码时间，默认时间为两个周
                 .tokenValiditySeconds(60)

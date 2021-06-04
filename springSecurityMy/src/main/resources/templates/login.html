@@ -9,6 +9,7 @@
 <form action="/login" method="post">
     <a >aaaaa</a>
 <!--这里的username 和 password 需要和后端统一-->
+    <!-- 获取crsf的值，请求的时候作为隐藏数据，获取后端的数据-->
     <input type="hidden" th:value="${_csrf.token}" name="_csrf" th:if="${_csrf}">
         用户名：<input type="text" name="username">
         密码：<input type="text" name="password">

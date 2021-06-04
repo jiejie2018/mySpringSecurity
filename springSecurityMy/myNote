@@ -39,3 +39,16 @@ AuthenticationFailureHandler  登录失败处理器
                      public String main() {
                          return "redirect:main.html";
                      }
+
+resources 下面static和templates的区别
+   通过controller返回时  static需要重定向，而templates的可以直接返回
+        static-->
+       @RequestMapping("/toError")
+       public String error() {
+           return "redirect:error.html";
+       }
+        templates-->
+       @RequestMapping("/showLogin")
+       public String showLogin() {
+           return "login";
+       }
