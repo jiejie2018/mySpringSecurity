@@ -52,3 +52,5 @@ resources 下面static和templates的区别
        public String showLogin() {
            return "login";
        }
+
+// 记住密码

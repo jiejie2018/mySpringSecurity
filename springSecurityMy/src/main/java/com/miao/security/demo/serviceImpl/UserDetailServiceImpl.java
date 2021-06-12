@@ -2,6 +2,7 @@ package com.miao.security.demo.serviceImpl;
 
 import com.miao.security.demo.config.MyPasswordEncode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
+    @Autowired
+    private RedisConnectionFactory redisConnectionFactory;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
@@ -27,6 +30,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
 //		this(username, password, true, true, true, true, authorities);
 //	}           // 需要看一下  createAuthorityList commaSeparatedStringToAuthorityList这两个的区别
   //       return new User(username,password, AuthorityUtils.createAuthorityList("admin,adMIN,ROLE_abc"));
+//        StringBuffer sb = new StringBuffer();
+//        sb.append("admin");
+//        sb.append("adMIN");
         return new User(username,password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin,adMIN,ROLE_abc"));
     }
 }
